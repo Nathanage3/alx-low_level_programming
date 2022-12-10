@@ -1,4 +1,4 @@
-#include <stdio.h>
+{#include <stdio.h>
 /**
  * main - main block
  *
@@ -14,4 +14,4 @@ int main(void)
 	printf("Size of a float: %lu byte(S)\n", sizeof(float));
 	return	(0);
 
-}
+}}
