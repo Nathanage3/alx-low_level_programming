@@ -2,7 +2,7 @@
 
 /**
  * print_sign - Chechs the sign of a number
- * @c - sign of the number to be printed
+ * %n - sign of the number to be printed
  * Return: 1 for + sign,  0 for 0 and -1 for -sign
  *
  */
