@@ -2,8 +2,8 @@
 
 /**
  * print_sign - Entry point
- * %n - sign of n to be printed
- * Return: 1 for + sign,  0 for 0 and -1 for -sign
+ * %n - The number to be executed
+ * Return: 1 for positive num, 0 for 0 and -1 for negative num
  *
  */
 int print_sign(int n)
