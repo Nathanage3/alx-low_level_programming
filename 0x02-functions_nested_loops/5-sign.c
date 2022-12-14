@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_sign - Chechs the sign of a number
- * %n - sign of the number to be printed
+ * print_sign - Entry point
+ * %n - sign of n to be printed
  * Return: 1 for + sign,  0 for 0 and -1 for -sign
  *
  */
