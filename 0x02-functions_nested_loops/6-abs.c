@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _abs - Checks the absolute value of the number
- * @c - The number to be executed
+ * @c: The number to be executed
  * Return: The absolute value
  *
  */
