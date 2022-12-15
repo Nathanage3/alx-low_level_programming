@@ -2,7 +2,7 @@
 
 /**
  * print_sign - Entry point
- * %n - The number to be executed
+ * %n: The number to be executed
  * Return: 1 for positive num, 0 for 0 and -1 for negative num
  *
  */
