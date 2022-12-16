@@ -1,8 +1,14 @@
+#include "main.h"
+/**
+ * print_square - print square
+ * @size: the size wanted to be executed
+ * Return: empty
+ */
 void print_square(int size)
 {
 	int i, j;
 
-	if (n <= 0)
+	if (size <= 0)
 		_putchar('\n');
 	for (i = 0; i < size; i++)
 	{
