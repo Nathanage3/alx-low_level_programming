@@ -1,7 +1,6 @@
 #include <stdio.h>
 /**
  * main - prints integers 1 to 100
- * @i: The number to be executed
  * Return: Always 0
  */
 
