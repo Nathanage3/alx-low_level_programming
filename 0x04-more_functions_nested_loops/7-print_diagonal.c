@@ -1,3 +1,10 @@
+#include "main.h"
+/**
+ * print_diagonal - prints a character in a diagonal
+ * @n: an integer to be executed
+ * Return: Always 0
+ */
+
 void print_diagonal(int n)
 {
 	int c, j;
