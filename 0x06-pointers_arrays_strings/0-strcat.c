@@ -9,14 +9,20 @@
 
 char *_strcat(char *dest, char *src)
 {
-	const char* a[98];
-       
-	const char* [98];
+	int i, j;
 
-
-	const char* p[100];
-
-	 strcpy(p[100], a[98]);
-	 strcat(p[100], b[98]);
-	return strcat;
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
