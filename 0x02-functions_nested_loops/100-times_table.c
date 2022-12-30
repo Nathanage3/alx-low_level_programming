@@ -19,29 +19,26 @@ void print_times_table(int n)
 			if (c <= 9)
 			{
 				printf("%d", c);
-				printf(",");
 				if (j == n)
 					continue;
-				printf("   ");
 				printf(",");
+				printf("   ");
 			}
 			else if (c >= 10 && c < 100)
 			{
 				printf("%d", c);
-				printf(",");
 				if (j == n)
 					continue;
-				printf("  ");
 				printf(",");
+				printf("  ");
 			}
 			else if (c >= 100 && c <= 144)
 			{
 				printf("%d", c);
-				printf(",");
 				if (j == n)
 					continue;
-				printf(" ");
 				printf(",");
+				printf(" ");
 			}
 		}
 		printf("\n");
