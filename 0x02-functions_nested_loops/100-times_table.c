@@ -32,7 +32,7 @@ void print_times_table(int n)
 				printf(",");
 				printf("  ");
 			}
-			else if (c >= 100 && c <= 144)
+			else if (c >= 100 && c <= 196)
 			{
 				printf("%d", c);
 				if (j == n)
@@ -44,6 +44,5 @@ void print_times_table(int n)
 		printf("\n");
 	}
 	}
-	printf("\n");
 
 }
