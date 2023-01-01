@@ -6,9 +6,7 @@
 
 int main(void)
 {
-	long int n;
-
-	int i;
+	long int n, i;
 
 	n = 612852475143;
 
