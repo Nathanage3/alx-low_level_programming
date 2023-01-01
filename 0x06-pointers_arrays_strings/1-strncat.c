@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _strncat - concatinate n characters of src to dest
  * @dest: destination
