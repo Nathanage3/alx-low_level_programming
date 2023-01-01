@@ -6,7 +6,9 @@
 
 int main(void)
 {
-	long long int  n, i;
+	long int n;
+
+	int i;
 
 	n = 612852475143;
 
@@ -14,7 +16,8 @@ int main(void)
 	{
 		if (n % i == 0)
 		{
-			printf("%lli ", i);
+			printf("%lu", n);
+			printf(" ");
 			n = n / i;
 			i--;
 		}
