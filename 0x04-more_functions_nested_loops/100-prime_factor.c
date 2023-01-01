@@ -14,7 +14,7 @@ int main(void)
 	{
 		if (n % i == 0)
 		{
-			printf("%lu", n);
+			printf("%li", n);
 			printf(" ");
 			n = n / i;
 			i--;
