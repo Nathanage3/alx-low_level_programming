@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _memset - fill string s with char b
  * @s: string
