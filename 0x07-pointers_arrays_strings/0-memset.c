@@ -7,7 +7,6 @@
  * @n: int
  * Return: char value
  */
-
 char *_memset(char *s, char b, unsigned int n)
 {
 	unsigned int a;
@@ -18,5 +17,3 @@ char *_memset(char *s, char b, unsigned int n)
 	}
 	return (s);
 }
-
-
