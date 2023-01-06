@@ -6,11 +6,11 @@
  */
 int _sqrt_recursion(int n)
 {
-	return (_sqrt2(1, n));
+	return (sqrt2(1, n));
 }
 
 /**
- * _sqrt2 - find square
+ * sqrt2 - find square
  *
  * @a: integer
  *
@@ -20,12 +20,12 @@ int _sqrt_recursion(int n)
  *
  */
 
-int _sqrt2(int a, int b)
+int sqrt2(int a, int b)
 {
 	if (a * a > b)
 		return (-1);
 	else if (a * a == b)
 		return (a);
 	else
-		return (_sqrt2(a += 1, b));
+		return (sqrt2(a += 1, b));
 }
