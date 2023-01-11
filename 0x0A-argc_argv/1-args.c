@@ -6,16 +6,8 @@
  * @argv: Array name
  * Return: 0
  */
-int main(int argc, char *argv[])
+int main(int argc, __attribute__((unused)) char *argv[])
 {
-	int j;
-
-	if (argc == 1)
-		printf("%d\n", argc - 1);
-	else
-	{
-		for (j = 0; *argv; j++, argv++)
-		printf("%d\n", j - 1);
-	}
+	printf("%d\n", argc - 1);
 	return (0);
 }
