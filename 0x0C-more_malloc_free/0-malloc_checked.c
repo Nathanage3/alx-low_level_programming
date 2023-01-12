@@ -4,6 +4,7 @@
 /**
  * malloc_checked - a function that allocate memory
  * @k: integer
+ * Return: output
  */
 
 void *malloc_checked(unsigned int k)
