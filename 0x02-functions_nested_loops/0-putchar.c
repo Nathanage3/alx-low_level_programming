@@ -1,5 +1,7 @@
 #include "main.h"
 /**
+ * main - main function
+ * Return: Always 0 for success and 1 failure
  */
 int main(void)
 {
