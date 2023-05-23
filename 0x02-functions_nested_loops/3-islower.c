@@ -7,8 +7,7 @@
 int _islower(int r)
 {
 	if (r >= 97 && r <= 122)
-		_putchar('1');
-	else if (r >= 65 && r <= 91)
-		_putchar('0');
-	return (0);
+		return (1);
+	else
+		return (0);
 }
