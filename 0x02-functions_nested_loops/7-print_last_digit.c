@@ -4,27 +4,14 @@
  * @c: the number to be evaluated
  * Return: Always 0 on success and 1 for failure
  */
-int _abs(int);
 int print_last_digit(int c)
 {
 	int i;
 
-	i = _abs(c) % 10;
+	if ( c < 0)
+		i = (-1 * c) % 10;
+	else
+		i = c % 10;
 	_putchar('0' + i);
 	return (i);
 }
-/**
- * _abs - absolute value of a number
- * @n: the number to be evaluated
- * Return: Always 0 on success and 1 for failure
- */
-int _abs(int n)
-{
-        if (n > 0)
-                return (n);
-        else if (n == 0)
-                return (0);
-        else
-                return (-n);
-}
-
