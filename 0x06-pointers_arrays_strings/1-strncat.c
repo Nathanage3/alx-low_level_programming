@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * _strcat - string cat function
+ * _strncat - string cat function
  * @dest: destination
  * @src: source
  * @n: the number character chosen to be added
  * Return: Always pointer to main function
  */
-char *_strcat(char *dest, char *src, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0, j = 0;
 
