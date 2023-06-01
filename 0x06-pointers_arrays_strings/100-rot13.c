@@ -16,7 +16,7 @@ char *rot13(char *str)
 		{
 			if (str[i] == alphabet[j])
 			{
-				s[i] = rot13[j];
+				str[i] = rot13[j];
 				break;
 			}
 		}
