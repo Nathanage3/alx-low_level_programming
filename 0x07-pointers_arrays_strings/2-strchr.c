@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _strchr - first occurence of a character
  * @s: the string
@@ -11,7 +12,7 @@ char *_strchr(char *s, char c)
 
 	while (s[i] != '\0')
 	{
-		if (s[i] == b)
+		if (s[i] == c)
 		{
 			return (s);
 		}
