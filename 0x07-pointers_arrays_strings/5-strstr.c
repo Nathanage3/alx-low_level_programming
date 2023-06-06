@@ -10,6 +10,10 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i = 0, j = 0;
 
+	if (*haystack == NULL || *needle == NULL)
+	{
+		return (NULL);
+	}
 	if (haystack[i] == '\0' || needle[j] == '\0')
 	{
 		return (NULL);
