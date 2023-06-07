@@ -38,8 +38,5 @@ int _sqrt(int n, int start, int end)
 	{
 		_sqrt(n, mid + 1, end);
 	}
-	else
-	{
-		return (_sqrt(n, start, mid - 1));
-	}
+	return (_sqrt(n, start, mid - 1));
 }
