@@ -1,6 +1,6 @@
 #include "main.h"
 /***
- * wildcmp - wildcopare 
+ * wildcmp - wildcopare
  * @s1: The first string
  * @s2: The second string
  * Return: Always 0
