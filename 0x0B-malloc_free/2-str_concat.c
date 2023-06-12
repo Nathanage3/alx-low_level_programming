@@ -12,6 +12,14 @@ char *str_concat(char *s1, char *s2)
 	char *new;
 	unsigned int i = 0, j = 0;
 
+	if (s1 == NULL)
+	{
+		return (s2);
+	}
+	if (s2 == NULL)
+	{
+		return (s1);
+	}
 	while (s1[i] != '\0')
 	{
 		i++;
@@ -21,6 +29,10 @@ char *str_concat(char *s1, char *s2)
 		j++;
 	}
 	new = malloc(sizeof(char) * (i + j + 2));
+	if (new == NULL)
+	{
+		return (NULL);
+	}
 	j = 0;
 	while (s1[j] != '\0')
 	{
