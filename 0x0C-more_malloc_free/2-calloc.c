@@ -9,7 +9,8 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *p;
-	unsigned int total;
+	unsigned int total, i;
+	unsigned char *byte_ptr;
 
 	if (nmemb == 0 || size == 0)
 	{
@@ -19,9 +20,13 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	p = malloc(total);
 	if (p == NULL)
 	{
-		return (NULL);
+		exit(98);
 	}
-	memset(p, 0, total);
+	byte_ptr = (unsigned char *)p;
+	for (i = 0; i < total; i++)
+	{
+		byte_ptr[i] = 0;
+	}
 	return (p);
 
 }
