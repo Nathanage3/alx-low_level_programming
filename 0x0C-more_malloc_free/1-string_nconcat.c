@@ -30,11 +30,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		ncat[l] = s1[l];
 		l++;
 	}
-	while (n > k)
+	for (k = 0; n > k; k++)
 	{
-		ncat[l] = s2[k];
-		l++;
-		k++;
+		ncat[l + k] = s2[k];
 	}
+	ncat[l + k] = '\0'; 
 	return (ncat);
 }
