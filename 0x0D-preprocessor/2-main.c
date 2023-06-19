@@ -3,7 +3,8 @@
  * main - main function
  * Return: Always 0 on success and 1 for failure
  */
-main(void)
+int main(void)
 {
 	printf("%s\n", __FILE__);
+	return (0);
 }
