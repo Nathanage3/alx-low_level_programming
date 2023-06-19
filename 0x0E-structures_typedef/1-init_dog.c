@@ -1,6 +1,3 @@
-#ifndef 1_INIT_DOG_C
-#define 1_INIT_DOG_C
-
 /**
  * init_dog - void function
  * @d: struct dog datatype
@@ -15,4 +12,3 @@ struct dog *d
 	float age;
 	char *owner;
 };
-#endif
