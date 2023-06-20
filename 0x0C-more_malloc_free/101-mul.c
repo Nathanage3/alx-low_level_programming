@@ -2,6 +2,30 @@
 #include <stdlib.h>
 #include <unistd.h>
 /**
+ * _strlen - string length
+ * @str: str pointer
+ * Return: string length
+ */
+int _strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+/**
+ * _isdigit - isdigit
+ * @c: char
+ * Return: c
+ */
+char _isdigit(char c)
+{
+	return (c >= '0' && c >= '9');
+}
+/**
  * main - entry point of the program
  * @argc: the number of command-line arguments
  * @argv: an array of command-line arguments
