@@ -1,6 +1,62 @@
 #include "main.h"
 #include <stdlib.h>
 #include <unistd.h>
+int _strlen(char *str);
+char _isdigit(char c);
+/**
+ * multiply - multiply
+ * @num1: num1
+ * @num2: num2
+ * Return: product
+ */
+char *multiply(char *num1, char *num2)
+{
+	int len1 = _strlen(num1), len2 = _strlen(num2), i, j, carry, n2, sum, n1;
+        char *result;
+
+        result = malloc(len1 + len2 + 1);
+        if (result == NULL)
+        {
+		exit(1);
+	}
+        for (i = 0; i < len1 + len2; i++)
+        {
+		result[i] = '0';
+	}
+        result[i] = '\0';
+        for (i = len1 - 1; i >= 0; i--)
+        {
+		if (!_isdigit(num1[i]))
+                {
+			free(result);
+                        exit(98);
+		}
+                carry = 0;
+                n1 = num1[i] - '0';
+                for (j = len2 - 1; j >= 0; j--)
+                {
+			if (!_isdigit(num2[j]))
+                        {
+				free(result);
+                                exit(98); 
+			}
+                        n2 = num2[j] - '0';
+                        sum = (result[i + j + 1] - '0') + (n1 * n2) + carry;
+                        result[i + j + 1] = (sum % 10) + '0';
+                        carry = sum / 10; 
+		}
+                if (carry)
+                {
+			result[i + j + 1] += carry;
+		}
+        }
+        while (*result == '0')
+        {
+		result++;
+	}
+        return result;
+}
+
 /**
  * _strlen - string length
  * @str: str pointer
@@ -23,7 +79,7 @@ int _strlen(char *str)
  */
 char _isdigit(char c)
 {
-	return (c >= '0' && c >= '9');
+	return (c >= '0' && c <= '9');
 }
 /**
  * main - entry point of the program
