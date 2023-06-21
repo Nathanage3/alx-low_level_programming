@@ -4,8 +4,10 @@
  * @name: name
  * @f: function pointer
  */
-void print_name(char *name, void (*f)(char *c))
+void print_name(char *name, void (*f)(char *))
 {
+	void (*ptr)(char *);
 
-	f(name);
+	ptr = f;
+	ptr(name);
 }
