@@ -1,1 +1,1 @@
-low level, but it reqiures high level effort
+singly linked list
