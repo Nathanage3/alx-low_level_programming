@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * free_list
- * @head:
+ * free_list - free head
+ * @head: head
  */
 void free_list(list_t *head)
 {
