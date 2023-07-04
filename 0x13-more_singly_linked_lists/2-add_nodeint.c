@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "lists.h"
 /**
  * add_nodeint - add node
