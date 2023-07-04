@@ -18,11 +18,14 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	if (*head == NULL)
 		*head = newNode;
-	temp = *head;
-	while (temp->next != NULL)
+	else
 	{
-		temp = temp->next;
+		temp = *head;
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+		}
+		temp->next = newNode;
 	}
-	temp->next = newNode;
 	return (newNode);
 }
