@@ -37,7 +37,7 @@ void copy_text(const char *from, const char *to)
 	fd_t = open(to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_t == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", to);
+		dprintf(2, "Error: Can't write to file %s\n", to);
 		exit(99);
 	}
 	while ((readbyte = read(fd_f, buff, 1024)) > 0)
@@ -45,32 +45,23 @@ void copy_text(const char *from, const char *to)
 		writebyte = write(fd_t, buff, readbyte);
 		if (writebyte == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", to);
+			dprintf(2, "Error: Can't write to file %s\n", to);
 			exit(99);
 		}
 	}
 	if (readbyte == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", from);
+		dprintf(2, "Error: Can't read from file %s", from);
 		exit(98);
 	}
 	if (close(fd_f) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_f);
+		dprintf(2, "Error: Can't close fd %d\n", fd_f);
 		exit(100);
 	}
 	if (close(fd_t) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_t);
+		dprintf(2, "Error: Can't close fd %d\n", fd_t);
 		exit(100);
 	}
-}
-/**
- * print_error_exit - exit error
- * @message: stderr message
- */
-void print_error_exit(const char *message)
-{
-	dprintf(STDERR_FILENO, "%s\n", message);
-	exit(98);
 }
