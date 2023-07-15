@@ -34,10 +34,10 @@ void copy_text(const char *from, const char *to)
 		dprintf(2, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
-	fd_t = open(to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	fd_t = open(to, O_CREAT | O_TRUNC | 1, 0664);
 	if (fd_t == -1)
 	{
-		dprintf(2, "Error: Can't write to file %s\n", to);
+		dprintf(2, "Error: Can't write to %s\n", to);
 		exit(99);
 	}
 	while ((readbyte = read(fd_f, buff, 1024)) > 0)
@@ -45,7 +45,7 @@ void copy_text(const char *from, const char *to)
 		writebyte = write(fd_t, buff, readbyte);
 		if (writebyte == -1)
 		{
-			dprintf(2, "Error: Can't write to file %s\n", to);
+			dprintf(2, "Error: Can't write to %s\n", to);
 			exit(99);
 		}
 	}
