@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdio.h>
-
+void print_elf_header(const Elf64_Ehdr *header);
 void copy_text(const char *from, const char *to);
 int _putchar(char c);
 ssize_t read_textfile(const char *filename, size_t letters);
