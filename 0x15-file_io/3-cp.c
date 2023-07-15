@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 void copy_text(const char *from, const char *to)
 {
 	int fd_f, fd_t;
-	int readbyte;
+	ssize_t readbyte, writebyte;
 	char buff[1024];
 
 	fd_f = open(from, 0);
@@ -38,10 +38,12 @@ void copy_text(const char *from, const char *to)
 	if (fd_t == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", to);
+		exit(99);
 	}
-	while ((readbyte = read(fd_f, buff, sizeof(buff))) > 0)
+	while ((readbyte = read(fd_f, buff, 1024)) > 0)
 	{
-		if (write(fd_t, buff, readbyte) != readbyte)
+		writebyte = write(fd_t, buff, readbyte);
+		if (writebyte == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", to);
 			exit(99);
@@ -52,9 +54,14 @@ void copy_text(const char *from, const char *to)
 		dprintf(2, "Error: Can't write to %s", from);
 		exit(98);
 	}
-	if (close(fd_f == -1 || close(fd_t) == -1))
+	if (close(fd_f) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d %d\n", fd_t, fd_f);
+		dprintf(2, "Error: Can't close fd %d\n", fd_f);
+		exit(100);
+	}
+	if (close(fd_t) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", fd_t);
 		exit(100);
 	}
 }
