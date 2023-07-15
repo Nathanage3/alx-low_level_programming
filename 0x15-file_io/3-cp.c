@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
+		dprintf(2, "Usage: %s cp file_from file_to\n", argv[0]);
 		exit(97);
 	}
 	copy_text(argv[1], argv[2]);
