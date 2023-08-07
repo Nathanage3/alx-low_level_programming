@@ -1,67 +1,70 @@
 #include "main.h"
 /**
- * main - main function
- *
- * @argc: arg count
- * @argv: arg vector
- * Return: Always 0 on success and -1 on failure
-*/
+ * error_file - checks if files can be opened.
+ * @file_from: file_from.
+ * @file_to: file_to.
+ * @argv: arguments vector.
+ * Return: no return.
+ */
+void error_file(int file_from, int file_to, char *argv[])
+{
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+}
+
+/**
+ * main - check the code for Holberton School students.
+ * @argc: number of arguments.
+ * @argv: arguments vector.
+ * Return: Always 0.
+ */
 int main(int argc, char *argv[])
 {
+	int file_from, file_to, err_close;
+	ssize_t nchars, nwr;
+	char buf[1024];
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: %s cp file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-	copy_text(argv[1], argv[2]);
-	return (0);
-}
-/**
- * copy_text - copying text from fron to to
- * @from: src
- * @to: dest
-*/
-void copy_text(const char *from, const char *to)
-{
-	int fd_f, fd_t;
-	ssize_t readbyte, writebyte;
-	char buff[1024];
 
-	fd_f = open(from, 0);
-	if (fd_f == -1)
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	error_file(file_from, file_to, argv);
+
+	nchars = 1024;
+	while (nchars == 1024)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", from);
-		exit(98);
+		nchars = read(file_from, buf, 1024);
+		if (nchars == -1)
+			error_file(-1, 0, argv);
+		nwr = write(file_to, buf, nchars);
+		if (nwr == -1)
+			error_file(0, -1, argv);
 	}
-	fd_t = open(to, O_CREAT | O_TRUNC | 1, 0664);
-	if (fd_t == -1)
+
+	err_close = close(file_from);
+	if (err_close == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", to);
-		exit(99);
-	}
-	while ((readbyte = read(fd_f, buff, 1024)) > 0)
-	{
-		writebyte = write(fd_t, buff, readbyte);
-		if (writebyte == -1)
-		{
-			dprintf(2, "Error: Can't write to %s\n", to);
-			exit(99);
-		}
-	}
-	if (readbyte == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s", from);
-		exit(98);
-	}
-	if (close(fd_f) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_f);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
-	if (close(fd_t) == -1)
+
+	err_close = close(file_to);
+	if (err_close == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_t);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
+	return (0);
 }
