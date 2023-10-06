@@ -1,46 +1,41 @@
-#include "hash_tables.h"
-/**
- * hash_table_set - set the hash table
- * @ht: the created hash table
- * @key: the key of hash table
- * @value: the value of hashtable
- * Return: the newly set hash table
- */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *newItem = NULL;
-	unsigned long int i;
+	unsigned long int i, idx;
+	char *copy_val;
+	hash_node_t *new_ht;
 
-	if (!ht || !key || strlen(key) == 0)
+	if (ht == NULL || key == NULL || *key == 48 || value == NULL)
 		return (0);
-	i = key_index((unsigned char *)key, ht->size);
-	for (newItem = ht->array[i]; newItem; newItem = newItem->next)
+
+	copy_val = strdup(value);
+	if (copy_val == NULL)
+		return (0);
+
+	idx = key_index((const unsigned char *)key, ht->size);
+	for (i = idx; ht->array[i]; ++i)
 	{
-		if (strcmp(newItem->key, key) == 0)
+		if (strcmp(ht->array[i]->key, key) == 0)
 		{
-			free(newItem->value);
-			newItem->value = strdup(value);
-			if (!newItem->value)
-				return (0);
+			free(ht->array[i]->value);
+			ht->array[i]->value = copy_val;
 			return (1);
 		}
 	}
-	newItem = malloc(sizeof(hash_node_t));
-	if (!newItem)
+	new_ht = malloc(sizeof(hash_node_t));
+	if (new_ht == NULL)
 	{
-		printf("Memory allocation failed");
+		free(copy_val);
 		return (0);
 	}
-	newItem->key = strdup(key);
-	newItem->value = strdup(value);
-	if (!newItem->key || !newItem->value)
+	new_ht->key = strdup(key);
+	if (new_ht->key == NULL)
 	{
-		free(newItem->key);
-		free(newItem->value);
-		free(newItem);
+		free(new_ht);
 		return (0);
 	}
-	newItem->next = ht->array[i];
-	ht->array[i] = newItem;
-	return (0);
+	new_ht->value = copy_val;
+	new_ht->next = ht->array[idx];
+	ht->array[idx] = new_ht;
+
+	return (1);
 }
