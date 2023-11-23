@@ -1,4 +1,4 @@
-A Makefile is a special file, used by the make utility, that guides the compilation and linking of programs in Unix and Unix-like environments. It's essentially a script containing a set of rules and dependencies used to automate the build process.
+A Makefile is a special file, used by the make utility, that guides the compilation and linking of programs in Unix and Unix-like environments. It is essentially a script containing a set of rules and dependencies used to automate the build process.
 
 Key Components:
 Targets: These are the names of the files to be created or actions to be executed.
