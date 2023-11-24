@@ -1,1 +1,1 @@
-The first code of mine of C programming
+The first code of mine of C programming.
